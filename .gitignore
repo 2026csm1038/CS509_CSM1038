@@ -1,0 +1,8 @@
+# Compiled binaries and object files
+*.o
+assignment_01/driver/gemm_driver
+common_wrapper/wrapper
+
+# Raw output logs (results go in README instead)
+assignment_01/outputs/*
+!assignment_01/outputs/.gitkeep
