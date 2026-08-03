@@ -1,0 +1,17 @@
+GEMM Test Case Manifest
+==================================================
+gemm_test_01.txt: M=0, K=3, N=3 -- Edge case: M=0 (empty A)
+gemm_test_02.txt: M=3, K=0, N=3 -- Edge case: K=0 (zero inner dimension)
+gemm_test_03.txt: M=1, K=1, N=1 -- Smallest non-trivial case
+gemm_test_04.txt: M=2, K=3, N=2 -- PDF example (fixed values)
+gemm_test_05.txt: M=5, K=5, N=5 -- Small square
+gemm_test_06.txt: M=10, K=10, N=10 -- Small square
+gemm_test_07.txt: M=3, K=7, N=2 -- Rectangular / non-square
+gemm_test_08.txt: M=8, K=2, N=9 -- Rectangular / non-square
+gemm_test_09.txt: M=8, K=8, N=8 -- Exactly at block boundary
+gemm_test_10.txt: M=64, K=64, N=64 -- Exactly at block boundary
+gemm_test_11.txt: M=63, K=63, N=63 -- Just below block boundary (uneven blocks)
+gemm_test_12.txt: M=65, K=65, N=65 -- Just above block boundary (uneven blocks)
+gemm_test_13.txt: M=100, K=100, N=100 -- Medium
+gemm_test_14.txt: M=300, K=300, N=300 -- Large
+gemm_test_15.txt: M=500, K=500, N=500 -- Very large
