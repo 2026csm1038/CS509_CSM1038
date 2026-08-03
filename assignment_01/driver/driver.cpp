@@ -50,7 +50,7 @@ int main(int argc, char* argv[]){
 
     double timeSimple = duration<double, milli>(end1 - start1).count();
 
-    cout << "Algorithm: General Matrix Multiplication (Simple)\n";
+    cout << "Algorithm: GEMM Simple\n";
     cout << "Result matrix:\n";
     printMatrix(C1);
     cout << "Execution time: " << timeSimple << " ms\n\n";
