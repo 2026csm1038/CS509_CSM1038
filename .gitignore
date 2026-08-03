@@ -6,3 +6,4 @@ common_wrapper/wrapper
 # Raw output logs (results go in README instead)
 assignment_01/outputs/*
 !assignment_01/outputs/.gitkeep
+assignment_01/tests/generate_csr_tests.py

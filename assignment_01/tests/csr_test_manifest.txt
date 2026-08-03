@@ -1,0 +1,12 @@
+CSR Test Case Manifest
+==================================================
+csr_test_01.txt: V=4, E=0 -- Empty graph: no edges
+csr_test_02.txt: V=1, E=0 -- Single vertex, no edges
+csr_test_03.txt: V=3, E=2 -- Graph with a self-loop
+csr_test_04.txt: V=4, E=5 -- Hand-verified example
+csr_test_05.txt: V=6, E=4 -- Disconnected components
+csr_test_06.txt: V=5, E=20 -- Complete graph K5
+csr_test_07.txt: V=2, E=2 -- Self-loop plus one edge
+csr_test_08.txt: V=10, E=11 -- Random small graph V=10
+csr_test_09.txt: V=100, E=257 -- Random medium graph V=100
+csr_test_10.txt: V=1000, E=2931 -- Random larger graph V=1000
