@@ -9,9 +9,10 @@ CSRGraph CSRconversion(const vector<vector<pair<int,double>>>& adjList,int V, in
 
    for(int u=0;u<V;u++){
      graph.row_ptr[u+1] = graph.row_ptr[u] + (int)adjList[u].size();
-   }
+   }// After this loop, row_ptr[u] tells us exactly where vertex u's
+   // edges will start once we flatten everything into col_ind/values.
 
-   int totalEdges = graph.row_ptr[V];
+   int totalEdges = graph.row_ptr[V];// Total number of edges across all vertices
    graph.col_ind.resize(totalEdges);
    graph.values.resize(totalEdges);
   
@@ -19,8 +20,8 @@ CSRGraph CSRconversion(const vector<vector<pair<int,double>>>& adjList,int V, in
    for(int u=0;u<V;u++){
      int start = graph.row_ptr[u];
      for(size_t i=0;i<adjList[u].size();i++){
-        graph.col_ind[start + i] = adjList[u][i].first;
-        graph.values[start + i]  = adjList[u][i].second;
+        graph.col_ind[start + i] = adjList[u][i].first;// neighbor vertex
+        graph.values[start + i]  = adjList[u][i].second;// edge weight
      } 
    }
    return graph;
