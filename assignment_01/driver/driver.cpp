@@ -17,6 +17,7 @@ void printMatrix(const vector<vector<double>>& C){
   }
 }
 int main(int argc, char* argv[]){
+   //Argument check
    if(argc < 2){
       cerr<<"ERROR:Input file not provided \n";
       cerr<<"Usage: "<<argv[0]<<"<gemm_test_file.txt> \n";
@@ -43,6 +44,7 @@ int main(int argc, char* argv[]){
  
   infile.close();
 
+ // SIMPLE GEMM
   auto start1 = high_resolution_clock::now();
   vector<vector<double>> C1 = Simple(A,B,M,K,N);
   auto end1 = high_resolution_clock::now();
@@ -55,7 +57,11 @@ int main(int argc, char* argv[]){
     printMatrix(C1);
     cout << "Execution time: " << timeSimple << " ms\n\n";
 
-
+     
+    //BLOCKING GEMM
+    // Block size is chosen automatically based on matrix size instead
+    // of being hardcoded, so it scales sensibly across the whole test
+    // suite (tiny matrices vs. large ones).
     int blockSize = chooseBlockSize(M, K, N);
     auto start2 = high_resolution_clock::now();
     vector<vector<double>> C2 = Blocking(A, B, M, K, N, blockSize);
