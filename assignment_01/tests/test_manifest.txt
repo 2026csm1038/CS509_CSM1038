@@ -25,3 +25,8 @@ gemm_test_22.txt: M=4, K=4, N=200 -- Very short and wide matrix
 gemm_test_23.txt: M=6, K=300, N=6 -- Large inner dimension only (stresses K-loop)
 gemm_test_24.txt: M=97, K=89, N=101 -- Prime-ish dimensions (max uneven-block stress)
 gemm_test_25.txt: M=6, K=6, N=6 -- Identity multiplication (result must equal A exactly)
+gemm_test_26.txt: M=600, K=600, N=600 -- Scaling test - larger than 500
+gemm_test_27.txt: M=700, K=700, N=700 -- Scaling test - larger than 600
+gemm_test_28.txt: M=800, K=800, N=800 -- Scaling test - larger than 700
+gemm_test_29.txt: M=600, K=800, N=1000 -- scaling test
+gemm_test_30.txt: M=1000, K=1000, N=1000 -- Very large stress test - demonstrates cache advantage at scale

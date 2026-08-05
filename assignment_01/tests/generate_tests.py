@@ -94,6 +94,12 @@ write_random_test(22, 4, 4, 200, desc="Very short and wide matrix")
 write_random_test(23, 6, 300, 6, desc="Large inner dimension only (stresses K-loop)")
 write_random_test(24, 97, 89, 101, desc="Prime-ish dimensions (max uneven-block stress)")
 write_identity_test(25, 6, desc="Identity multiplication (result must equal A exactly)")
+write_random_test(26, 600, 600, 600, desc="Scaling test - larger than 500")
+write_random_test(27, 700, 700, 700, desc="Scaling test - larger than 600")
+write_random_test(28, 800, 800, 800, desc="Scaling test - larger than 700")
+write_random_test(29,600,800,1000,desc="scaling test")
+write_random_test(30, 1000, 1000, 1000, desc="Very large stress test - demonstrates cache advantage at scale")
+
 
 with open(os.path.join(OUT_DIR, "test_manifest.txt"), "w") as f:
     f.write("GEMM Test Case Manifest\n")
