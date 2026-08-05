@@ -15,3 +15,13 @@ gemm_test_12.txt: M=65, K=65, N=65 -- Just above block boundary (uneven blocks)
 gemm_test_13.txt: M=100, K=100, N=100 -- Medium
 gemm_test_14.txt: M=300, K=300, N=300 -- Large
 gemm_test_15.txt: M=500, K=500, N=500 -- Very large
+gemm_test_16.txt: M=1, K=6, N=5 -- Row vector x matrix (M=1)
+gemm_test_17.txt: M=5, K=6, N=1 -- Matrix x column vector (N=1)
+gemm_test_18.txt: M=4, K=1, N=4 -- K=1 (outer product style)
+gemm_test_19.txt: M=6, K=6, N=6 -- Negative values included
+gemm_test_20.txt: M=5, K=5, N=5 -- Decimal / floating-point values
+gemm_test_21.txt: M=200, K=4, N=4 -- Very tall and thin matrix
+gemm_test_22.txt: M=4, K=4, N=200 -- Very short and wide matrix
+gemm_test_23.txt: M=6, K=300, N=6 -- Large inner dimension only (stresses K-loop)
+gemm_test_24.txt: M=97, K=89, N=101 -- Prime-ish dimensions (max uneven-block stress)
+gemm_test_25.txt: M=6, K=6, N=6 -- Identity multiplication (result must equal A exactly)

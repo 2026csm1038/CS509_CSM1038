@@ -5,7 +5,7 @@
 DRIVER="./assignment_01/driver/gemm_driver"
 TESTS="./assignment_01/tests"
 
-for i in $(seq -w 1 15); do
+for i in $(seq -w 1 25); do
     FILE="$TESTS/gemm_test_$i.txt"
     if [ ! -f "$FILE" ]; then
         continue
