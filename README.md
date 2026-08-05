@@ -68,7 +68,7 @@ GEMM input file (space-separated values), one test case per file:
 M K N
 Matrix A (M × K)
 Matrix B (K × N)
-
+```
 **Assumptions:**
 - Values are read as `double`.
 - Both GEMM implementations run on the exact same input file so their outputs and timings are directly comparable.
