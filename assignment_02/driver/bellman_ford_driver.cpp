@@ -2,6 +2,9 @@
 #include <fstream>
 #include <iomanip>
 #include <iostream>
+#include <limits>
+#include <string>
+#include <utility>
 #include <vector>
 
 #include "bellman_ford.h"
@@ -9,7 +12,7 @@
 
 using namespace std;
 
-int main(int argc, char *argv[])
+int main(int argc, char* argv[])
 {
     if (argc != 2)
     {
@@ -26,46 +29,66 @@ int main(int argc, char *argv[])
     }
 
     int V, E;
-
     inputFile >> V >> E;
 
     if (V <= 0 || E < 0)
     {
-        cerr << "Invalid graph size." << endl;
+        cerr << "Error: Invalid graph size." << endl;
         return 1;
     }
 
     vector<vector<pair<int, double>>> adjList(V);
 
-    for (int i = 0; i < E; i++)
+    for (int u = 0; u < V; u++)
     {
-        int u, v;
-        double w;
+        int vertex;
+        int degree;
 
-        inputFile >> u >> v >> w;
+        inputFile >> vertex >> degree;
 
-        if (u < 0 || u >= V || v < 0 || v >= V)
+        if (vertex != u || degree < 0)
         {
-            cerr << "Invalid edge encountered." << endl;
+            cerr << "Error: Invalid adjacency-list format." << endl;
             return 1;
         }
 
-        adjList[u].push_back({v, w});
+        for (int j = 0; j < degree; j++)
+        {
+            int v;
+            double weight;
+
+            inputFile >> v >> weight;
+
+            if (v < 0 || v >= V)
+            {
+                cerr << "Error: Invalid destination vertex." << endl;
+                return 1;
+            }
+
+            adjList[u].push_back({v, weight});
+        }
     }
 
+    string sourceLabel;
     int source;
 
-    inputFile >> source;
+    inputFile >> sourceLabel >> source;
+
+    if (sourceLabel != "SOURCE")
+    {
+        cerr << "Error: Missing SOURCE declaration." << endl;
+        return 1;
+    }
 
     if (source < 0 || source >= V)
     {
-        cerr << "Invalid source vertex." << endl;
+        cerr << "Error: Invalid source vertex." << endl;
         return 1;
     }
 
     inputFile.close();
 
-
+    // CSR conversion is outside the timed section.
     CSRGraph graph = CSRconversion(adjList, V, E);
 
     auto start = chrono::high_resolution_clock::now();
@@ -75,42 +98,46 @@ int main(int argc, char *argv[])
     auto stop = chrono::high_resolution_clock::now();
 
     auto elapsed =
-        chrono::duration_cast<chrono::milliseconds>(stop - start);
+        chrono::duration_cast<chrono::microseconds>(
+            stop - start);
+
+    cout << "Algorithm: Bellman-Ford" << endl;
+    cout << "Source: " << source << endl;
 
     if (result.hasNegativeCycle)
     {
-        cout << "Negative weight cycle detected." << endl;
+        cout << "Negative cycle: Yes" << endl;
     }
     else
     {
-        cout << "Source Vertex : " << source << "\n\n";
+        cout << "Vertex Distance" << endl;
 
-        cout << left
-        << setw(10) << "Vertex"
-        << "Distance" << endl;
+        const long double INF =
+            numeric_limits<long double>::infinity();
 
-        for (int i = 0; i < V; i++)
+        for (int v = 0; v < V; v++)
         {
-            cout << left << setw(10) << i;
+            cout << v << " ";
 
-            if (result.distance[i] ==
-                numeric_limits<long double>::infinity())
+            if (result.distance[v] == INF)
             {
                 cout << "INF";
             }
             else
             {
                 cout << fixed << setprecision(2)
-                     << static_cast<double>(result.distance[i]);
+                     << result.distance[v];
             }
 
             cout << endl;
         }
+
+        cout << "Negative cycle: No" << endl;
     }
 
-    cout << "\nExecution Time : "
-     << elapsed.count()
-     << " ms" << endl;
+    cout << "Execution time: "
+         << elapsed.count()
+         << " microseconds" << endl;
 
     return 0;
 }
