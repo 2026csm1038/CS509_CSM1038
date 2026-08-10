@@ -60,7 +60,14 @@ The Assignment 2 specification requires CSR conversion to be performed as prepro
 
 The common wrapper provides a menu-driven way to launch assignment drivers.
 
-The wrapper itself is a local executable and is not intended to be tracked in the repository.
+The repository provides a Makefile to compile the common wrapper and the assignment drivers.
+
+```text
+make clean 
+make 
+./wrapper
+```
+
 
 ## Assignments
 
