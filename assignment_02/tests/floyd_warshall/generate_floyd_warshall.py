@@ -22,7 +22,7 @@ def generate_graph(vertices, edge_probability, filename, seed):
                     continue
 
                 if random.random() < edge_probability:
-                    weight = random.randint(-10, 20)
+                    weight = random.randint(1, 20)
 
                     # Avoid negative self-cycles; self-loops are
                     # already excluded by i == j above.
