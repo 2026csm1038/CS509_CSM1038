@@ -108,7 +108,7 @@ void runMST()
     string filename;
 
     cout << "Enter path to MST test file "
-         << "(e.g. assignment_03/tests/mst/mst_10.txt): ";
+         << "(e.g. assignment_03/tests/mst_random_10.txt): ";
     cin >> filename;
 
     string command =

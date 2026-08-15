@@ -100,6 +100,24 @@ Detailed implementation, input formats, testing and performance information is d
 assignment_02/README.md
 ```
 
+### Assignment 03 — Minimum Spanning Tree
+
+Assignment 03 contains:
+
+* Prim's algorithm
+* Kruskal's algorithm
+* Test generator
+* Required test cases
+* Edge-case test cases
+
+
+Detailed implementation, input formats, testing and performance information is documented in:
+
+```text
+assignment_03/README.md
+```
+
+
 ## Build Environment
 
 All C++ programs are compiled using:
