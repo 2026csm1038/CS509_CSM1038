@@ -1,4 +1,3 @@
-
 #include <cstdlib>
 #include <iostream>
 #include <string>
@@ -14,6 +13,7 @@ void showMenu()
     cout << "2. CSR Conversion Test\n";
     cout << "3. Bellman-Ford\n";
     cout << "4. Floyd-Warshall\n";
+    cout << "5. MST (Prim + Kruskal)\n";
     cout << "0. Exit\n";
     cout << "-----------------------------------\n";
     cout << "Enter choice: ";
@@ -103,6 +103,27 @@ void runFloydWarshall()
     }
 }
 
+void runMST()
+{
+    string filename;
+
+    cout << "Enter path to MST test file "
+         << "(e.g. assignment_03/tests/mst/mst_10.txt): ";
+    cin >> filename;
+
+    string command =
+        "./assignment_03/driver/mst_driver " + filename;
+
+    cout << "\nRunning: " << command << "\n\n";
+
+    int result = system(command.c_str());
+
+    if (result != 0)
+    {
+        cerr << "Error: MST driver exited with a non-zero status.\n";
+    }
+}
+
 int main()
 {
     int choice;
@@ -130,6 +151,10 @@ int main()
                 runFloydWarshall();
                 break;
 
+            case 5:
+                runMST();
+                break;
+
             case 0:
                 cout << "Exiting.\n";
                 break;
@@ -142,4 +167,3 @@ int main()
 
     return 0;
 }
-
