@@ -17,7 +17,7 @@ This individual assignment implements two Minimum Spanning Tree algorithms:
 
 Both algorithms operate on the same weighted, undirected graph. The graph is converted from adjacency-list format to CSR format before the algorithm execution.
 
-The two algorithms must produce the same minimum total MST weight. For graphs having multiple valid MSTs, the selected edges may differ. :contentReference[oaicite:1]{index=1}
+The two algorithms must produce the same minimum total MST weight. For graphs having multiple valid MSTs, the selected edges may differ.
 
 ## 2. Implementation Approach
 
@@ -47,7 +47,7 @@ u(V-1) degree neighbor weight ...
 
 Each undirected edge appears in the adjacency list of both endpoints and is counted once in E.
 
-MST edge weights may be positive, zero, or negative. :contentReference[oaicite:2]{index=2}
+MST edge weights may be positive, zero, or negative. 
 
 ## 4. CSR Conversion and Timing
 
@@ -55,7 +55,7 @@ The adjacency-list input is converted to CSR using the common CSR helper.
 
 CSR conversion, file reading and output printing are excluded from the measured algorithm time.
 
-The timer starts immediately before the MST algorithm call and stops immediately after it finishes. :contentReference[oaicite:3]{index=3}
+The timer starts immediately before the MST algorithm call and stops immediately after it finishes. 
 
 
 ## 5. File Structure
@@ -122,5 +122,9 @@ assignment_03/driver/mst_driver.cpp \
 | mst_two_vertices.txt | 2 | 1 | Two Vertices | 1 | 2 | Pass |
 | mst_unique.txt | 5 | 7 | General | 3 | 3 | Pass |
 | mst_zero_weight.txt | 4 | 4 | General | 2 | 2 | Pass |
+
+## References
+
+T. H. Cormen et al., *Introduction to Algorithms*, 4th Edition, MIT Press — Minimum Spanning Trees, Kruskal's Algorithm, and Prim's Algorithm.
 
 
