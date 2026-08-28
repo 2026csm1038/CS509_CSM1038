@@ -12,4 +12,5 @@ bellman_ford_driver
 floyd_warshall_driver
 wrapper
 mst_driver
-vertex_colouring_driver
+vertex_coloring_driver
+pagerank_driver
