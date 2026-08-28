@@ -7,13 +7,15 @@ using namespace std;
 void showMenu()
 {
     cout << "\n===================================\n";
-    cout << "   CS509_CSM1038 (INDIVIDUAL) Common Wrapper\n";
+    cout << "   CS509_CSM1038 Common Wrapper\n";
     cout << "===================================\n";
     cout << "1. GEMM (Simple + Blocking)\n";
     cout << "2. CSR Conversion Test\n";
     cout << "3. Bellman-Ford\n";
     cout << "4. Floyd-Warshall\n";
     cout << "5. MST (Prim + Kruskal)\n";
+    cout << "6. Greedy Vertex Coloring\n";
+    cout << "7. PageRank\n";
     cout << "0. Exit\n";
     cout << "-----------------------------------\n";
     cout << "Enter choice: ";
@@ -124,6 +126,48 @@ void runMST()
     }
 }
 
+void runVertexColoring()
+{
+    string filename;
+
+    cout << "Enter path to Vertex Coloring test file "
+         << "(e.g. assignment_04/tests/vertex_coloring/color.txt): ";
+    cin >> filename;
+
+    string command =
+        "./assignment_04/driver/vertex_coloring_driver " + filename;
+
+    cout << "\nRunning: " << command << "\n\n";
+
+    int result = system(command.c_str());
+
+    if (result != 0)
+    {
+        cerr << "Error: Vertex Coloring driver exited with a non-zero status.\n";
+    }
+}
+
+void runPageRank()
+{
+    string filename;
+
+    cout << "Enter path to PageRank test file "
+         << "(e.g. assignment_04/tests/pagerank/pagerank_example.txt): ";
+    cin >> filename;
+
+    string command =
+        "./assignment_04/driver/pagerank_driver " + filename;
+
+    cout << "\nRunning: " << command << "\n\n";
+
+    int result = system(command.c_str());
+
+    if (result != 0)
+    {
+        cerr << "Error: PageRank driver exited with a non-zero status.\n";
+    }
+}
+
 int main()
 {
     int choice;
@@ -153,6 +197,14 @@ int main()
 
             case 5:
                 runMST();
+                break;
+
+            case 6:
+                runVertexColoring();
+                break;
+
+            case 7:
+                runPageRank();
                 break;
 
             case 0:
