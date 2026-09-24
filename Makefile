@@ -10,6 +10,7 @@ ASSIGNMENT_04_INC = -Icommon -Iassignment_04/src
 
 all: wrapper \
      assignment_01/driver/gemm_driver \
+     assignment_01/tests/csr_test \
      assignment_02/driver/bellman_ford_driver \
      assignment_02/driver/floyd_warshall_driver \
      assignment_03/driver/mst_driver \
@@ -28,6 +29,15 @@ assignment_01/driver/gemm_driver: \
 	assignment_01/driver/driver.cpp \
 	assignment_01/src/gemm.cpp \
 	-o assignment_01/driver/gemm_driver
+
+
+assignment_01/tests/csr_test: \
+	$(COMMON) \
+	assignment_01/tests/csr_test.cpp
+	$(CXX) $(CXXFLAGS) $(COMMON_INC) \
+	$(COMMON) \
+	assignment_01/tests/csr_test.cpp \
+	-o assignment_01/tests/csr_test
 
 
 assignment_02/driver/bellman_ford_driver: \

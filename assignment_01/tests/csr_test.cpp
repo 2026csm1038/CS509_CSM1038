@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
-#include "../src/csr.h"
+#include "../../common/csr.h"
 
 using namespace std;
 
